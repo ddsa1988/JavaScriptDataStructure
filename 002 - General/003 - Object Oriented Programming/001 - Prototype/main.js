@@ -9,6 +9,10 @@ function Person(firstName, lastName, birthyear) {
 }
 
 Person.prototype.getAge = function (year) {
+    if (!(Number.isInteger(year) && year >= this.birthyear)) {
+        throw new Error("Year must be a number and greater than birthyear.");
+    }
+
     return year - this.birthyear;
 };
 

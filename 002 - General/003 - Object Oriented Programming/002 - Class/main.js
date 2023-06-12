@@ -8,9 +8,9 @@ class Person {
     #birthyear;
 
     constructor(firstName, lastName, birthyear) {
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
-        this.setBirthyear(birthyear);
+        this.#setFirstName(firstName);
+        this.#setLastName(lastName);
+        this.#setBirthyear(birthyear);
     }
 
     setFirstName(firstName) {
@@ -25,7 +25,8 @@ class Person {
         return this.#firstName + " " + this.#lastName;
     }
 
-    setBirthyear(birthyear) {
+    #setBirthyear(birthyear) {
+        // Private method
         this.#birthyear = birthyear;
     }
 
@@ -34,6 +35,12 @@ class Person {
     }
 
     getAge(year) {
+        if (!(Number.isInteger(year) && year >= this.#birthyear)) {
+            throw new Error(
+                "Year must be a number and greater than birthyear."
+            );
+        }
+
         return year - this.#birthyear;
     }
 }
