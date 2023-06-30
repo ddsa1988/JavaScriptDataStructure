@@ -27,6 +27,14 @@ class Stack {
     clear() {
         this.#items = [];
     }
+
+    toString() {
+        if (this.isEmpty()) {
+            return "";
+        }
+
+        return this.#items.join(", ");
+    }
 }
 
 const stack = new Stack();
@@ -42,3 +50,4 @@ stack.push(15);
 console.log(stack.pop());
 console.log(stack.pop());
 console.log(stack.size());
+console.log(stack.toString());

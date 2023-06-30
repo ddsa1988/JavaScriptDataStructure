@@ -43,13 +43,7 @@ class Stack {
             return "";
         }
 
-        let string = this.#items["0"];
-
-        for (let i = 1; i < this.#count; i++) {
-            string = `${string}, ${this.#items[i]}`;
-        }
-
-        return string;
+        return Object.values(this.#items).join(", ");
     }
 }
 

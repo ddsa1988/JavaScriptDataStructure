@@ -42,9 +42,7 @@ class Stack {
             return "";
         }
 
-        let string = "";
-
-        return string;
+        return [...this.#items.values()].join(", ");
     }
 }
 
