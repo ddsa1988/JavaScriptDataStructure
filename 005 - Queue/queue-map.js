@@ -25,6 +25,17 @@ class Queue {
         return this.isEmpty() ? undefined : this.#items.get(this.#lowestCount);
     }
 
+    search(element) {
+        const itemsArray = [...this.#items.values()];
+        for (let i = 0; i < itemsArray.length; i++) {
+            if (element === itemsArray[i]) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     size() {
         return this.#items.size;
     }
@@ -51,3 +62,4 @@ queue.enqueue(100);
 queue.enqueue(50);
 
 console.log(queue.toString());
+console.log(queue.search(50));

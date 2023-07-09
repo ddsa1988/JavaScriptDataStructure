@@ -25,6 +25,18 @@ class Stack {
         return this.isEmpty() ? undefined : this.#items[this.#count - 1];
     }
 
+    search(element) {
+        const itemsArray = Object.values(this.#items);
+
+        for (let i = 0; i < itemsArray.length; i++) {
+            if (element === itemsArray[i]) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     size() {
         return this.#count;
     }

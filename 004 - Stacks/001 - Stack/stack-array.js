@@ -16,6 +16,10 @@ class Stack {
         return this.#items[this.#items.length - 1];
     }
 
+    search(element) {
+        return this.#items.indexOf(element);
+    }
+
     size() {
         return this.#items.length;
     }
