@@ -1,14 +1,13 @@
 "use strict";
 
 class Queue {
-    #items = {};
-    #count = 0;
+    #items = new Map();
     #lowestCount = 0;
 
     constructor() {}
 
     enqueue(element) {
-        this.#items[this.#count++] = element;
+        this.#items.set(this.size(), element);
     }
 
     dequeue() {
@@ -16,18 +15,18 @@ class Queue {
             return undefined;
         }
 
-        const element = this.#items[this.#lowestCount];
-        delete this.#items[this.#lowestCount++];
+        const element = this.#items.get(this.#lowestCount);
+        this.#items.delete(this.#lowestCount++);
 
         return element;
     }
 
     peek() {
-        return this.isEmpty() ? undefined : this.#items[this.#lowestCount];
+        return this.isEmpty() ? undefined : this.#items.get(this.#lowestCount);
     }
 
     size() {
-        return this.#count - this.#lowestCount;
+        return this.#items.size;
     }
 
     isEmpty() {
@@ -35,13 +34,11 @@ class Queue {
     }
 
     clear() {
-        this.#items = {};
-        this.#count = 0;
-        this.#lowestCount = 0;
+        this.#items.clear();
     }
 
     toString() {
-        return this.isEmpty() ? "" : Object.values(this.#items).join(", ");
+        return this.isEmpty() ? "" : [...this.#items.values()].join(", ");
     }
 }
 
