@@ -54,12 +54,3 @@ class Queue {
 }
 
 export { Queue };
-
-const queue = new Queue();
-
-queue.enqueue(10);
-queue.enqueue(100);
-queue.enqueue(50);
-
-console.log(queue.toString());
-console.log(queue.search(50));
