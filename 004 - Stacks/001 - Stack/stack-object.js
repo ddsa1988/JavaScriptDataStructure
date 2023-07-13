@@ -73,15 +73,4 @@ class Stack {
     }
 }
 
-const stack = new Stack();
-
-console.log(stack.isEmpty());
-stack.push(10);
-stack.push(20);
-stack.push(30);
-stack.push(10);
-console.log(stack.search(10));
-console.log(stack.search(30));
-console.log(stack.search(50));
-console.log(stack.peek());
-console.log(stack.toString());
+export { Stack };
