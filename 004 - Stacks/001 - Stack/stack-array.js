@@ -52,7 +52,7 @@ class Stack {
     }
 
     isEmpty() {
-        return this.#items.length === 0;
+        return this.size() === 0;
     }
 
     clear() {
